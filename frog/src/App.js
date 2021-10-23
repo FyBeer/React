@@ -1,7 +1,7 @@
 import './App.css';
-import Account from './components/Account';
-import Header from './components/Header';
-import Side_bar from './components/Side_bar';
+import Account from './components/Account/Account';
+import Header from './components/Header/Header';
+import Side_bar from './components/Left_column/Side_bar';
 
 const App = () => {
   return (

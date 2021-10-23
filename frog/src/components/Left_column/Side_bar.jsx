@@ -1,4 +1,4 @@
-import Style_site_bar from '../components_style/Side_bar.module.css'
+import Style_site_bar from './Left_column_style/Side_bar.module.css'
 
 const Side_bar = () => {
 	return (

@@ -1,4 +1,4 @@
-import Style_account from '../components_style/Account.module.css'
+import Style_account from './Account_style/Account.module.css'
 import Posts from './Posts';
 
 const Account = () => {
