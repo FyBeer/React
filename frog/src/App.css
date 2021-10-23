@@ -1,0 +1,88 @@
+.frog-box {
+  display: grid;
+  display: -ms-grid;
+  grid-template:
+    [start] "header" 75px [row2]
+    [row2]  "content-box" 1fr [row-end];
+    background-color: #202020;
+}
+/* Header */
+
+header {
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
+  grid-area: header;
+  background-color: #000;
+}
+.frog__logo{
+  width: 100px;
+  grid-column: 2/3;
+}
+
+/* Content */
+
+.content-box{
+  display: grid;
+  grid-template-columns: 5% 15% 1fr 5%;
+  color: #fff;
+}
+/* Side-bar */
+.side-bar{
+  grid-area: side;
+  grid-column: 2/3;
+}
+.side-bar__ul{
+  list-style-type: none;
+  margin: 30px 15px;
+  padding: 0;
+}
+.side-bar__el{
+  font-size: 26px;
+  margin: 5px 0;
+}
+/* User-content */
+.content{
+  grid-area: content;
+  grid-column: 3/4;
+}
+.content__header{
+  width: 100%;
+  height: 250px;
+  margin-top: 30px;
+}
+.user{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 200px 1fr;
+  margin-top: 30px;
+}
+.user__avatar{
+  width: 150px;
+}
+.user__info{
+  list-style-type: none;
+  margin: 0 15px;
+  padding: 0;
+}
+.user__info__header{
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.user__info__el{
+  font-size: 16px;
+  margin: 10px 0;
+}
+.user__posts{
+  grid-column: 1/3;
+}
+.user__posts__input{
+  width: 99.1%;
+  height: 80px;
+}
+.user__posts__add{
+  float: right;
+    width: 10%;
+    height: 25px;
+    padding: 0;
+    margin: 15px 0;
+}
