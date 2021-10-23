@@ -1,0 +1,14 @@
+
+.box{
+	grid-area: side;
+	grid-column: 2/3;
+ }
+ .list{
+	list-style-type: none;
+	margin: 30px 15px;
+	padding: 0;
+ }
+ .item{
+	font-size: 26px;
+	margin: 5px 0;
+ }

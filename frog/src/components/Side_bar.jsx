@@ -1,12 +1,14 @@
+import Style_site_bar from '../components_style/Side_bar.module.css'
+
 const Side_bar = () => {
 	return (
-		<nav className="side-bar">
-          <ul className="side-bar__ul">
-            <li className="side-bar__el">Profile</li>
-            <li className="side-bar__el">Messages</li>
-            <li className="side-bar__el">News</li>
-            <li className="side-bar__el">Music</li>
-            <li className="side-bar__el">Settings</li>
+		<nav className={Style_site_bar.box}>
+          <ul className={Style_site_bar.list}>
+            <li className={Style_site_bar.item}>Profile</li>
+            <li className={Style_site_bar.item}>Messages</li>
+            <li className={Style_site_bar.item}>News</li>
+            <li className={Style_site_bar.item}>Music</li>
+            <li className={Style_site_bar.item}>Settings</li>
           </ul>
         </nav>
 	);

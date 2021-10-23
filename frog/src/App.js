@@ -1,7 +1,7 @@
 import './App.css';
+import Account from './components/Account';
 import Header from './components/Header';
 import Side_bar from './components/Side_bar';
-import User_content from './components/User_content';
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <Header></Header>
       <div className="content-box">
         <Side_bar></Side_bar>
-        <User_content></User_content>
+        <Account></Account>
       </div>
     </div>
   );
