@@ -4,7 +4,7 @@ import Post from './Post/Post';
 const Posts = (props) => {
 
 	let postsElements = props.posts.map( p => <Post message={p.message} likesCount={p.likesCount}></Post> )
-
+	
 	return (
 		<div>
 			<div className={Posts_style.box}>
