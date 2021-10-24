@@ -1,0 +1,9 @@
+.fild{
+	list-style: none;
+	width: 59%;
+	padding: 0;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
