@@ -16,3 +16,6 @@
   grid-template-columns: 5% 15% 1fr 5%;
   color: #fff;
 }
+.content-box__item{
+  grid-area: 2/3;
+}

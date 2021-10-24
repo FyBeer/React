@@ -1,14 +1,15 @@
-import Style_site_bar from './Left_column_style/Side_bar.module.css'
+import { NavLink } from 'react-router-dom';
+import Site_bar_style from './Left_column_style/Side_bar.module.css'
 
-const Side_bar = () => {
+const Side_bar = (props) => {
 	return (
-		<nav className={Style_site_bar.box}>
-          <ul className={Style_site_bar.list}>
-            <li className={Style_site_bar.item}>Profile</li>
-            <li className={Style_site_bar.item}>Messages</li>
-            <li className={Style_site_bar.item}>News</li>
-            <li className={Style_site_bar.item}>Music</li>
-            <li className={Style_site_bar.item}>Settings</li>
+		<nav className={Site_bar_style.box}>
+          <ul className={Site_bar_style.list}>
+            <li className={Site_bar_style.item}><NavLink to="/account" activeClassName={Site_bar_style.active}>Profile</NavLink></li>
+            <li className={Site_bar_style.item}><NavLink to="/dialogs" activeClassName={Site_bar_style.active}>Messages</NavLink></li>
+            <li className={Site_bar_style.item}><NavLink to="/news" activeClassName={Site_bar_style.active}>News</NavLink></li>
+            <li className={Site_bar_style.item}><NavLink to="/music" activeClassName={Site_bar_style.active}>Music</NavLink></li>
+            <li className={Site_bar_style.item}><NavLink to="/settings" activeClassName={Site_bar_style.active}>Settings</NavLink></li>
           </ul>
         </nav>
 	);
