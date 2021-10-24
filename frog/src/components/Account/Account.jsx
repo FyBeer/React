@@ -1,7 +1,7 @@
 import Account_style from './Account_style/Account.module.css'
 import Posts from './Posts';
 
-const Account = () => {
+const Account = (props) => {
   return (
     <div className={Account_style.box}>
       <img src="https://phonoteka.org/uploads/posts/2021-04/1619464749_15-phonoteka_org-p-shapka-dlya-yutuba-chernii-fon-25.jpg" alt="" className={Account_style.header} />
@@ -15,7 +15,7 @@ const Account = () => {
           <li className={Account_style.item}>Web Site: https//...</li>
         </ul>
       </div>
-      <Posts></Posts>
+      <Posts posts={props.posts}></Posts>
     </div>
   );
 }
