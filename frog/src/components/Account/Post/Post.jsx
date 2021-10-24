@@ -1,3 +1,4 @@
+
 import Post_style from '../Account_style/Post_style/Post.module.css'
 
 const Post = (props) => {
