@@ -18,7 +18,7 @@ const App = (props) => {
           <Side_bar sidebarData={props.state.sidebar} ></Side_bar>
           <div className="content-box__item">
             <Route path='/dialogs' render={() => <Dialogs dialogsData={props.state.dialogsPage} ></Dialogs>} ></Route>
-            <Route path='/account' render={() => <Account accountData={props.state.accountPage} ></Account>}></Route>
+            <Route path='/account' render={() => <Account accountData={props.state.accountPage} addPost={props.addPost}></Account>}></Route>
             <Route path='/music' component={Music}></Route>
             <Route path='/news' component={News}></Route>
             <Route path='/settings' component={Settings}></Route>

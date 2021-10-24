@@ -1,3 +1,6 @@
+
+import {rerenderEntireTree} from '../render'
+
 let state = {
 	accountPage: {
 		posts: [
@@ -33,6 +36,17 @@ let state = {
 			{id: 3, name: 'H R', avatar: 'https://assets.rpgsite.net/images/images/000/070/785/article/Nok-NokSmall.png'}
 		]
 	}
+}
+
+export let addPost = (postMessage) => {
+	let newPost = {
+		id: 5,
+		message: postMessage,
+		likesCount: 0
+	}
+
+	state.accountPage.posts.push(newPost)
+	rerenderEntireTree(state)
 }
 
 export default state

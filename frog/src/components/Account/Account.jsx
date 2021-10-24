@@ -15,7 +15,7 @@ const Account = (props) => {
           <li className={Account_style.item}>Web Site: https//...</li>
         </ul>
       </div>
-      <Posts posts={props.accountData.posts}></Posts>
+      <Posts posts={props.accountData.posts} addPost={props.addPost}></Posts>
     </div>
   );
 }
