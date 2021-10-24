@@ -15,7 +15,7 @@ const App = (props) => {
       <div className="frog-box">
         <Header></Header>
         <div className="content-box">
-          <Side_bar></Side_bar>
+          <Side_bar sidebarData={props.state.sidebar} ></Side_bar>
           <div className="content-box__item">
             <Route path='/dialogs' render={() => <Dialogs dialogsData={props.state.dialogsPage} ></Dialogs>} ></Route>
             <Route path='/account' render={() => <Account accountData={props.state.accountPage} ></Account>}></Route>

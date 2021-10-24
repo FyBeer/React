@@ -11,7 +11,7 @@ let state = {
 	dialogsPage: {
 		dialogs: [
 		
-			{id:1, name:'Knock Knock'},
+			{id:1, name:'Nock Nock'},
 			{id:2, name:'Frog Knock'},
 			{id:3, name:'Tech Nology'},
 			{id:4, name:'Team Lid'},
@@ -25,8 +25,14 @@ let state = {
 			{id:4, message:'Where my project bitch'},
 			{id:5, message:'Good job my little boy'}
 		]
+	},
+	sidebar: {
+		frends: [
+			{id: 1, name: 'Nock Nock', avatar: 'https://assets.rpgsite.net/images/images/000/070/785/article/Nok-NokSmall.png'},
+			{id: 2, name: 'Team Lid', avatar: 'https://assets.rpgsite.net/images/images/000/070/785/article/Nok-NokSmall.png'},
+			{id: 3, name: 'H R', avatar: 'https://assets.rpgsite.net/images/images/000/070/785/article/Nok-NokSmall.png'}
+		]
 	}
-
 }
 
 export default state
