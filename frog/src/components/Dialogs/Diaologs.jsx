@@ -1,16 +1,19 @@
 import React from 'react';
+import { addMessageActionCreater, onMessageChangeActionCreater } from '../../Redux/dialogsPageReduser';
 import Dialogs_style from './Dialogs_style/Dialogs.module.css'
 import Dialog from './Dialog_item/Dialog_item';
 import Message from './Message_item/Message_item';
 
 const Dialogs = (props) => {
 
-	let newMessages = React.createRef()
-
 	let addMessage = () =>{
-		let text = newMessages.current.value
+		props.dispatch(addMessageActionCreater())
+	}
 
-		alert(text)
+	let onPostChange = (e) => {
+		debugger
+		let text = e.target.value
+		props.dispatch(onMessageChangeActionCreater(text))
 	}
 
 	let dialogsElements = props.dialogsData.dialogs.map( d =>  <Dialog name={d.name} id={d.id}></Dialog>)
@@ -24,7 +27,10 @@ const Dialogs = (props) => {
 			</div>
 			<div className={Dialogs_style.messages}>
 				{messagesElements}
-				<textarea ref={newMessages} ></textarea>
+				<textarea
+					type="text"
+					value={props.dialogsData.newMessageText}
+					onChange={onPostChange}></textarea>
 				<button onClick={addMessage} ></button>
 			</div>
 
