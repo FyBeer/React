@@ -1,5 +1,4 @@
 import Posts_style from './Account_style/Posts.module.css'
-import { addPostActionCreater, onPostChangeActionCreater } from '../../Redux/accountPageReduser';
 import Post from './Post/Post';
 import React from 'react';
 
@@ -7,15 +6,16 @@ const Posts = (props) => {
 
 	let postsElements = props.posts.map( p => <Post message={p.message} likesCount={p.likesCount}></Post> )
 
-	let addPost = () => {
-		props.dispatch(addPostActionCreater())
+	let onAddPost = () => {
+		debugger
+		props.addPost()
 	}
 	
 	let onPostChange = (e) => {
+		debugger
 		let text = e.target.value
-		props.dispatch(onPostChangeActionCreater(text))
+		props.updateNewPost(text)
 	}
-	debugger
 	return (
 		<div>
 			<div className={Posts_style.box}>
@@ -25,7 +25,7 @@ const Posts = (props) => {
 						value={props.postsText} 
 						className={Posts_style.input}
 						onChange={onPostChange}></textarea>
-			<button onClick={addPost} className={Posts_style.add}>send</button>
+			<button onClick={onAddPost} className={Posts_style.add}>send</button>
 		</div>
 			{postsElements}
 		</div>

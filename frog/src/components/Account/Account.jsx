@@ -1,7 +1,8 @@
 import Account_style from './Account_style/Account.module.css'
-import Posts from './Posts';
+import PostsContainer from './PostsContainer';
 
 const Account = (props) => {
+  debugger
   return (
     <div className={Account_style.box}>
       <img src="https://phonoteka.org/uploads/posts/2021-04/1619464749_15-phonoteka_org-p-shapka-dlya-yutuba-chernii-fon-25.jpg" alt="" className={Account_style.header} />
@@ -15,9 +16,7 @@ const Account = (props) => {
           <li className={Account_style.item}>Web Site: https//...</li>
         </ul>
       </div>
-      <Posts posts={props.accountData.posts}
-             postsText={props.accountData.newPostText}
-             dispatch={props.dispatch}></Posts>
+      <PostsContainer store={props.store} ></PostsContainer>
     </div>
   );
 }
