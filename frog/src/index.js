@@ -2,17 +2,24 @@ import './index.css';
 import reportWebVitals from './reportWebVitals'
 import store from './Redux/reduxStore'
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 
 let rerenderEntireTree = (state) => {
 	ReactDOM.render(
 	  <React.StrictMode>
-		 <App state={state}
-		 		store={store} 
-		 		dispatch={store.dispatch.bind(store)}/>
-	  </React.StrictMode>,
+		 <BrowserRouter>
+			<Provider store={store}>
+				<App state={state}
+								store={store} 
+								dispatch={store.dispatch.bind(store)}/>
+			</Provider>
+		</BrowserRouter>
+	  </React.StrictMode>
+	  ,
 	  document.getElementById('root')
 	);
  }

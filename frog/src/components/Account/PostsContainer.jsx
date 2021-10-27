@@ -1,23 +1,25 @@
 import Posts from "./Posts"
 import { addPostActionCreater, onPostChangeActionCreater } from '../../Redux/accountPageReduser';
+import { connect } from "react-redux";
 
 
-let PostsContainer = (props) => {
-
-	let state = props.store.getState()
-
-
-	let addPost = () => {
-		props.store.dispatch(addPostActionCreater())
+let mapStateToProps = (state) => {
+	return {
+		state: state.accountPage
 	}
-	
-	let PostChange = (text) => {
-		props.store.dispatch(onPostChangeActionCreater(text))
-	}
-
-	debugger
-
-	return <Posts updateNewPost={PostChange} addPost={addPost} posts={state.accountPage.posts} postsText={state.accountPage.newPostText} />
 }
+
+let mapDispatchToProps = (dispatch) => {
+	return {
+		addPost: () => {
+			dispatch(addPostActionCreater())
+		},
+		PostChange: (text) => {
+			dispatch(onPostChangeActionCreater(text))
+		}
+	}
+}
+
+let PostsContainer = connect (mapStateToProps, mapDispatchToProps) (Posts)
 
 export default PostsContainer

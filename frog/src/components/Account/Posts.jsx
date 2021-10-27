@@ -3,18 +3,18 @@ import Post from './Post/Post';
 import React from 'react';
 
 const Posts = (props) => {
-
-	let postsElements = props.posts.map( p => <Post message={p.message} likesCount={p.likesCount}></Post> )
+	debugger
+	let postsElements = props.state.posts.map( p => <Post message={p.message} likesCount={p.likesCount}></Post> )
 
 	let onAddPost = () => {
-		debugger
+		
 		props.addPost()
 	}
 	
 	let onPostChange = (e) => {
-		debugger
+		
 		let text = e.target.value
-		props.updateNewPost(text)
+		props.PostChange(text)
 	}
 	return (
 		<div>
