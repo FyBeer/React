@@ -18,7 +18,7 @@ const Dialogs = (props) => {
 	let dialogsElements = props.dialogsPage.dialogs.map( d =>  <Dialog name={d.name} id={d.id}></Dialog>)
 
 	let messagesElements = props.dialogsPage.messages.map( m =>  <Message message={m.message} id={m.id}></Message>)
-	debugger
+	
 
 	return (
 		<div className={Dialogs_style.box}>

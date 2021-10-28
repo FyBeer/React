@@ -14,6 +14,10 @@ let initialState = {
 const accoutPageReduser = (state = initialState, action) => {
 
 	
+	let stateCopy = {
+		...state,
+		posts: [...state.posts]
+	}
 
 	switch (action.type) {
 		case ADD_POST: {
@@ -23,8 +27,6 @@ const accoutPageReduser = (state = initialState, action) => {
 				likesCount: 0
 			}
 
-			let stateCopy = {...state}
-			stateCopy.posts = [...state.posts]
 			stateCopy.posts.push(newPost)
 			stateCopy.newPostText = ""
 
@@ -32,7 +34,6 @@ const accoutPageReduser = (state = initialState, action) => {
 		}
 
 		case ON_POST_CHANGE: {
-			let stateCopy = {...state}
 			stateCopy.newPostText = action.newText
 
 			return stateCopy
