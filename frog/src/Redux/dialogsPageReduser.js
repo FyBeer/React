@@ -22,24 +22,32 @@ let initialState = {
 }
 
 const dialogsPageReduser = (state = initialState, action) => {
-
+debugger
 	switch (action.type) {
 		
-		case ADD_MESSAGE:
+		case ADD_MESSAGE:{
 			let newMessage = {
 				id: 6,
 				message: state.newMessageText
 			}
 
-			state.messages.push(newMessage)
-			state.newMessageText = ''
+			let stateCopy = {...state}
+			stateCopy.messages = [...state.messages]
+			stateCopy.messages.push(newMessage)
+			stateCopy.newMessageText = ''
 
-			return state
+			return stateCopy
+		}
+			
 
-		case ON_MESSAGE_CHANGE:
-			state.newMessageText = action.newText
+		case ON_MESSAGE_CHANGE: {
+			let stateCopy = {...state}
 
-			return state
+			stateCopy.newMessageText = action.newText
+
+			return stateCopy
+		}
+			
 	
 		default:
 			return state

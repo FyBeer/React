@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import React from 'react';
 
 const Posts = (props) => {
-	debugger
+	
 	let postsElements = props.state.posts.map( p => <Post message={p.message} likesCount={p.likesCount}></Post> )
 
 	let onAddPost = () => {
@@ -12,6 +12,7 @@ const Posts = (props) => {
 	}
 	
 	let onPostChange = (e) => {
+		
 		
 		let text = e.target.value
 		props.PostChange(text)
@@ -22,7 +23,7 @@ const Posts = (props) => {
 			<p className={Posts_style.header}>My posts</p>
 			<textarea 
 						type="text" 
-						value={props.postsText} 
+						value={props.state.newPostText} 
 						className={Posts_style.input}
 						onChange={onPostChange}></textarea>
 			<button onClick={onAddPost} className={Posts_style.add}>send</button>

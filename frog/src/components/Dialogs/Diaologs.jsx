@@ -18,6 +18,7 @@ const Dialogs = (props) => {
 	let dialogsElements = props.dialogsPage.dialogs.map( d =>  <Dialog name={d.name} id={d.id}></Dialog>)
 
 	let messagesElements = props.dialogsPage.messages.map( m =>  <Message message={m.message} id={m.id}></Message>)
+	debugger
 
 	return (
 		<div className={Dialogs_style.box}>
@@ -28,7 +29,7 @@ const Dialogs = (props) => {
 				{messagesElements}
 				<textarea
 					type="text"
-					value={props.messageText}
+					value={props.dialogsPage.newMessageText}
 					onChange={onPostChange}></textarea>
 				<button onClick={onAddMessage} ></button>
 			</div>
