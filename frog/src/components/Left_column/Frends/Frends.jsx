@@ -3,7 +3,7 @@ import Frends_style from './Frends_style/Frends.module.css'
 
 const Frends = (props) => {
 
-	let frendsElements = props.sidebar.frends.map( f => <Frends_item id={f.id} name={f.name} avatar={f.avatar} ></Frends_item>)
+	let frendsElements = props.sidebar.frends.map( f => <Frends_item key={f.id} id={f.id} name={f.name} avatar={f.avatar} ></Frends_item>)
 	
 	return (
 		<div className={Frends_style.box}>

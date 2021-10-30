@@ -15,9 +15,9 @@ const Dialogs = (props) => {
 		props.updatePostChange(text)
 	}
 
-	let dialogsElements = props.dialogsPage.dialogs.map( d =>  <Dialog name={d.name} id={d.id}></Dialog>)
+	let dialogsElements = props.dialogsPage.dialogs.map( d =>  <Dialog name={d.name} key={d.id} id={d.id}></Dialog>)
 
-	let messagesElements = props.dialogsPage.messages.map( m =>  <Message message={m.message} id={m.id}></Message>)
+	let messagesElements = props.dialogsPage.messages.map( m =>  <Message message={m.message} key={m.id} id={m.id}></Message>)
 	
 
 	return (
