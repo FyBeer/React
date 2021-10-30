@@ -13,34 +13,22 @@ let initialState = {
 
 const accoutPageReduser = (state = initialState, action) => {
 
-	
-	let stateCopy
-
 	switch (action.type) {
 		case ADD_POST: 
-			stateCopy = {
+
+		let newPostText = state.newPostText
+			return {
 				...state,
 				newPostText: "",
-				posts: [...state.posts]
+				posts: [...state.posts, {id: 5, message: newPostText, likesCount: 0}]
 			}
-			let newPost = {
-				id: 5,
-				message: state.newPostText,
-				likesCount: 0
-			}
-
-			stateCopy.posts.push(newPost)
-			stateCopy.newPostText = ""
-
-			return stateCopy
 		
 
 		case ON_POST_CHANGE: 
-			stateCopy = {
+			return {
 				...state,
 				newPostText: action.newText
 		}
-			return stateCopy
 
 		default:
 			return state

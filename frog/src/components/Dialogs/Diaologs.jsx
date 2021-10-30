@@ -15,9 +15,9 @@ const Dialogs = (props) => {
 		props.updatePostChange(text)
 	}
 
-	let dialogsElements = props.dialogsPage.dialogs.map( d =>  <Dialog name={d.name} key={d.id} id={d.id}></Dialog>)
+	let dialogsElements = props.dialogs.map( d =>  <Dialog name={d.name} key={d.id} id={d.id}></Dialog>)
 
-	let messagesElements = props.dialogsPage.messages.map( m =>  <Message message={m.message} key={m.id} id={m.id}></Message>)
+	let messagesElements = props.messages.map( m =>  <Message message={m.message} key={m.id} id={m.id}></Message>)
 	
 
 	return (
@@ -29,7 +29,7 @@ const Dialogs = (props) => {
 				{messagesElements}
 				<textarea
 					type="text"
-					value={props.dialogsPage.newMessageText}
+					value={props.newMessageText}
 					onChange={onPostChange}></textarea>
 				<button onClick={onAddMessage} ></button>
 			</div>
