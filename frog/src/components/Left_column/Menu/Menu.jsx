@@ -9,6 +9,8 @@ const Menu = (props) => {
             <li className={Menu_style.item}><NavLink to="/news" activeClassName={Menu_style.active}>News</NavLink></li>
             <li className={Menu_style.item}><NavLink to="/music" activeClassName={Menu_style.active}>Music</NavLink></li>
             <li className={Menu_style.item}><NavLink to="/settings" activeClassName={Menu_style.active}>Settings</NavLink></li>
+            <br />
+            <li className={Menu_style.item}><NavLink to="/users" activeClassName={Menu_style.active}>Users</NavLink></li>
       </ul>
 	)
 }
