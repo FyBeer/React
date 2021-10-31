@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD_POST'
 const ON_POST_CHANGE = 'ON_POST_CHANGE'
+const SET_USERS_ACCOUNT = 'SET_USERS_ACCOUNT'
 
 let initialState = {
 	posts: [
@@ -8,10 +9,11 @@ let initialState = {
 		{id:3, message:'Take it', likesCount: 2},
 		{id:4, message:'Thanks', likesCount: 333333}
 	],
-	newPostText: ''
+	newPostText: '',
+	account: null
 }
 
-const accoutPageReduser = (state = initialState, action) => {
+const accountPageReduser = (state = initialState, action) => {
 
 	switch (action.type) {
 		case ADD_POST: 
@@ -30,6 +32,12 @@ const accoutPageReduser = (state = initialState, action) => {
 				newPostText: action.newText
 		}
 
+		case SET_USERS_ACCOUNT: 
+			return {
+				...state,
+				account: action.account
+		}
+
 		default:
 			return state
 	}
@@ -38,5 +46,6 @@ const accoutPageReduser = (state = initialState, action) => {
 
 export const addPostActionCreater = () => ({ type: ADD_POST })
 export const onPostChangeActionCreater = (text) => ({ type: ON_POST_CHANGE, newText: text })
+export const setUserAccount = (account) => ({type: SET_USERS_ACCOUNT, account })
 
-export default accoutPageReduser
+export default accountPageReduser

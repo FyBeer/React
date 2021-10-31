@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Menu = (props) => {
 	return (
 		<ul className={Menu_style.list}>
-            <li className={Menu_style.item}><NavLink to="/account" activeClassName={Menu_style.active}>Profile</NavLink></li>
+            <li className={Menu_style.item}><NavLink to="/profile" activeClassName={Menu_style.active}>Profile</NavLink></li>
             <li className={Menu_style.item}><NavLink to="/dialogs" activeClassName={Menu_style.active}>Messages</NavLink></li>
             <li className={Menu_style.item}><NavLink to="/news" activeClassName={Menu_style.active}>News</NavLink></li>
             <li className={Menu_style.item}><NavLink to="/music" activeClassName={Menu_style.active}>Music</NavLink></li>
