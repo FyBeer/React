@@ -2,43 +2,43 @@ import React from 'react'
 import { connect } from "react-redux";
 import { follow, setCurrentPage, setTotalUsersCount, setUsers, unfollow, setIsFetching } from '../../Redux/usersReduser';
 import Users from './Users'
-import * as axios from 'axios'
 import Preloader from '../Common/Preloadr/Preloader';
+import { getUsers } from '../../api/api';
 
 class UsersContainer extends React.Component {
 
 
-	componentDidMount () {
+	componentDidMount() {
 		this.props.setIsFetching(true)
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+		getUsers(this.props.currentPage, this.props.pageSize).then(data => {
 			this.props.setIsFetching(false)
-			this.props.setUsers(response.data.items)
-			this.props.setTotalUsersCount(response.data.totalCount)
+			this.props.setUsers(data.items)
+			this.props.setTotalUsersCount(data.totalCount)
 		})
 	}
 
 	onPageChange = (pageNumber) => {
 		this.props.setIsFetching(true)
 		this.props.setCurrentPage(pageNumber)
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+		getUsers(pageNumber, this.props.pageSize).then(data => {
 			this.props.setIsFetching(false)
-			this.props.setUsers(response.data.items)
+			this.props.setUsers(data.items)
 		})
 	}
 
 
-	render () {
+	render() {
 
 		let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
 
 		return <>
-		{this.props.isFetching ? <Preloader /> : null}
+			{this.props.isFetching ? <Preloader /> : null}
 			<Users pageCount={pageCount}
-						  currentPage={this.props.currentPage}
-						  onPageChange={this.onPageChange}
-						  users={this.props.users}
-						  unfollow={this.props.unfollow} 
-						  follow={this.props.follow} /> 
+				currentPage={this.props.currentPage}
+				onPageChange={this.onPageChange}
+				users={this.props.users}
+				unfollow={this.props.unfollow}
+				follow={this.props.follow} />
 		</>
 	}
 }
@@ -54,4 +54,4 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect (mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setIsFetching}) (UsersContainer)
+export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, setIsFetching })(UsersContainer)
