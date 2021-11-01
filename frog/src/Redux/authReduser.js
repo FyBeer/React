@@ -1,10 +1,10 @@
 const SET_USER_DATA = 'SET_USER_DATA'
-const ON_MESSAGE_CHANGE = 'ON_MESSAGE_CHANGE'
 
 let initialState = {
 	userId: null,
 	email: null,
 	login: null,
+	isAuth: false,
 	isFetching: false
 }
 
@@ -14,7 +14,6 @@ const authReduser = (state = initialState, action) => {
 	switch (action.type) {
 		
 		case SET_USER_DATA:{
-			let newMessageText = state.newMessageText
 			return {
 				...state,
 				...action.data
@@ -28,6 +27,6 @@ const authReduser = (state = initialState, action) => {
 
 }
 
-export const setUSerData = (userId, email, login) => ({ type: SET_USER_DATA, data: {userId, email, login} })
+export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, data: {userId, login, email, isAuth} })
 
 export default authReduser
