@@ -31,15 +31,18 @@ const Users = (props) => {
 							<img src={u.photos.small != null ? u.photos.small : nonPhoto} className={usersStyle.avatar}></img>
 						</NavLink>
 						<div className={usersStyle.follow}>{u.followed
-							? <button onClick={() => { 
+							? <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
+								props.toggleFollowingIsProgress(true, u.id)
 								subscribeAPI.unfollow(u.id).then(data => {
 									if (data.resultCode === 0) props.unfollow(u.id)
+									props.toggleFollowingIsProgress(false, u.id)
 								})
 							}}>Unfollow</button>
-							: <button onClick={() => { 
-								
+							: <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
+								props.toggleFollowingIsProgress(true, u.id)
 								subscribeAPI.follow(u.id).then(data => {
 									if (data.resultCode === 0) props.follow(u.id)
+									props.toggleFollowingIsProgress(false, u.id)
 								})
 							}}>Follow</button>}
 						</div>
