@@ -1,3 +1,6 @@
+import { accountAPI } from "../api/api"
+
+
 const ADD_POST = 'ADD_POST'
 const ON_POST_CHANGE = 'ON_POST_CHANGE'
 const SET_USERS_ACCOUNT = 'SET_USERS_ACCOUNT'
@@ -47,5 +50,15 @@ const accountPageReduser = (state = initialState, action) => {
 export const addPostActionCreater = () => ({ type: ADD_POST })
 export const onPostChangeActionCreater = (text) => ({ type: ON_POST_CHANGE, newText: text })
 export const setUserAccount = (account) => ({type: SET_USERS_ACCOUNT, account })
+
+
+export const getAccount = (userId) => (dispatch) => {
+	accountAPI.getAccount(userId)
+	.then(data => {
+		dispatch(setUserAccount(data))
+	})
+
+}
+
 
 export default accountPageReduser

@@ -1,24 +1,19 @@
-import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import Account from './Account';
-import {setUserAccount} from '../../Redux/accountPageReduser'
 import { withRouter } from 'react-router';
+import { getAccount } from '../../Redux/accountPageReduser';
 
 class AccountContainer extends React.Component {
 
 	componentDidMount = () => {
 		let userId = this.props.match.params.userId
-		
-		axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-		.then(response => {
-			this.props.setUserAccount(response.data)
-		})
+		this.props.getAccount(userId)
 	}
 
 	render () {
 		return (
-			<Account {...this.props} profile={this.profile} />
+			<Account {...this.props} />
 		)
 	}
 }
@@ -32,4 +27,4 @@ let mapStateToProps = (state) => {
 let WithDataUrlContainerComponent = withRouter(AccountContainer)
 
 
-export default connect (mapStateToProps, {setUserAccount}) (WithDataUrlContainerComponent)
+export default connect (mapStateToProps, {getAccount}) (WithDataUrlContainerComponent)

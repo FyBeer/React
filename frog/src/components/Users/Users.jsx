@@ -1,7 +1,6 @@
 import usersStyle from './usersStyle/usersStyle.module.css'
 import nonPhoto from '../../assets/image/nonPhoto.png'
 import { NavLink } from 'react-router-dom'
-import { subscribeAPI } from '../../api/api'
 
 const Users = (props) => {
 
@@ -30,20 +29,12 @@ const Users = (props) => {
 						<NavLink to={'/profile/' + u.id}>
 							<img src={u.photos.small != null ? u.photos.small : nonPhoto} className={usersStyle.avatar}></img>
 						</NavLink>
-						<div className={usersStyle.follow}>{u.followed
+						<div className={usersStyle.followSuccess}>{u.followed
 							? <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
-								props.toggleFollowingIsProgress(true, u.id)
-								subscribeAPI.unfollow(u.id).then(data => {
-									if (data.resultCode === 0) props.unfollow(u.id)
-									props.toggleFollowingIsProgress(false, u.id)
-								})
+								props.unfollow(u.id)
 							}}>Unfollow</button>
 							: <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => {
-								props.toggleFollowingIsProgress(true, u.id)
-								subscribeAPI.follow(u.id).then(data => {
-									if (data.resultCode === 0) props.follow(u.id)
-									props.toggleFollowingIsProgress(false, u.id)
-								})
+								props.follow(u.id)
 							}}>Follow</button>}
 						</div>
 					</div>
