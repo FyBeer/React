@@ -16,7 +16,8 @@ const authReduser = (state = initialState, action) => {
 		case SET_USER_DATA:{
 			return {
 				...state,
-				...action.data
+				...action.data,
+				isAuth: true
 			}
 		}
 			
@@ -27,6 +28,6 @@ const authReduser = (state = initialState, action) => {
 
 }
 
-export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, data: {userId, login, email, isAuth} })
+export const setAuthUserData = (userId, login, email) => ({ type: SET_USER_DATA, data: {userId, login, email} })
 
 export default authReduser
