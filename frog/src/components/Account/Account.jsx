@@ -3,6 +3,9 @@ import Account_style from './Account_style/Account.module.css'
 import PostsContainer from './PostsContainer';
 
 const Account = (props) => {
+
+  
+
   if  (!props.account) {
     return <Preloader />
   } else return (

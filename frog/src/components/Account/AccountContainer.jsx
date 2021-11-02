@@ -1,8 +1,11 @@
+
 import React from 'react';
 import { connect } from 'react-redux';
 import Account from './Account';
 import { withRouter } from 'react-router';
 import { getAccount } from '../../Redux/accountPageReduser';
+import { withAuthRedirect } from '../../hoc/WithAuthRedirect';
+import { compose } from 'redux';
 
 class AccountContainer extends React.Component {
 
@@ -10,6 +13,7 @@ class AccountContainer extends React.Component {
 		let userId = this.props.match.params.userId
 		this.props.getAccount(userId)
 	}
+
 
 	render () {
 		return (
@@ -24,7 +28,8 @@ let mapStateToProps = (state) => {
 	}
 }
 
-let WithDataUrlContainerComponent = withRouter(AccountContainer)
-
-
-export default connect (mapStateToProps, {getAccount}) (WithDataUrlContainerComponent)
+export default compose(
+	connect (mapStateToProps, {getAccount}),
+	withRouter,
+	withAuthRedirect
+) (AccountContainer)

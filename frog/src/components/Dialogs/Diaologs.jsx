@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import Dialogs_style from './Dialogs_style/Dialogs.module.css'
 import Dialog from './Dialog_item/Dialog_item';
 import Message from './Message_item/Message_item';
@@ -20,6 +21,7 @@ const Dialogs = (props) => {
 	let messagesElements = props.messages.map( m =>  <Message message={m.message} key={m.id} id={m.id}></Message>)
 	
 
+	
 	return (
 		<div className={Dialogs_style.box}>
 			<div className={Dialogs_style.dialogs}>
