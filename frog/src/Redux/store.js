@@ -1,6 +1,6 @@
-import accoutPageReduser from "./accountPageReduser"
-import dialogsPageReduser from "./dialogsPageReduser"
-import sidebarReduser from "./sidebarReduser"
+import accoutPageReducer from "./accountPageReducer"
+import dialogsPageReducer from "./dialogsPageReducer"
+import sidebarReducer from "./sidebarReducer"
 
 
 
@@ -62,9 +62,9 @@ let store = {
 
 	dispatch (action) {
 
-		this._state.accoutPage = accoutPageReduser ( this._state.accountPage, action)
-		this._state.dialogsPage = dialogsPageReduser ( this._state.dialogsPage, action )
-		this._state.sidebar = sidebarReduser ( this._state.sidebar, action )
+		this._state.accoutPage = accoutPageReducer ( this._state.accountPage, action)
+		this._state.dialogsPage = dialogsPageReducer ( this._state.dialogsPage, action )
+		this._state.sidebar = sidebarReducer ( this._state.sidebar, action )
 
 		this._callSubscriber(this._state)
 

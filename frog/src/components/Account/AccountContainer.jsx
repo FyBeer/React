@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Account from './Account';
 import { withRouter } from 'react-router';
-import { getAccount, getStatus, updateStatus } from '../../Redux/accountPageReduser';
+import { getAccount, getStatus, updateStatus } from '../../Redux/accountPageReducer';
 import { compose } from 'redux';
 
 class AccountContainer extends React.Component {

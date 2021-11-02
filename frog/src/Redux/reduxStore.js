@@ -1,20 +1,22 @@
 import { applyMiddleware, combineReducers, createStore } from "redux"
-import accountPageReduser from "./accountPageReduser"
-import authReduser from "./authReduser"
-import dialogsPageReduser from "./dialogsPageReduser"
-import sidebarReduser from "./sidebarReduser"
-import usersReduser from "./usersReduser"
+import accountPageReducer from "./accountPageReducer"
+import authReducer from "./authReducer"
+import dialogsPageReducer from "./dialogsPageReducer"
+import sidebarReducer from "./sidebarReducer"
+import usersReducer from "./usersReducer"
 import thunkMiddleware from 'redux-thunk'
+import { reducer as formReducer } from 'redux-form';
 
-let redusers = combineReducers({
-	accountPage: accountPageReduser,
-	dialogsPage: dialogsPageReduser,
-	sidebar: sidebarReduser,
-	usersPage: usersReduser,
-	auth: authReduser
+let reducers = combineReducers({
+	accountPage: accountPageReducer,
+	dialogsPage: dialogsPageReducer,
+	sidebar: sidebarReducer,
+	usersPage: usersReducer,
+	auth: authReducer,
+	form: formReducer
 })
 
-let store = createStore(redusers, applyMiddleware(thunkMiddleware))
+let store = createStore(reducers, applyMiddleware(thunkMiddleware))
 window.store = store
 
 export default store

@@ -19,7 +19,7 @@ let initialState = {
 }
 
 
-const usersReduser = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 		case FOLLOW:
@@ -111,4 +111,4 @@ export const unfollow = (userId) => (dispatch) => {
 		})
 }
 
-export default usersReduser
+export default usersReducer

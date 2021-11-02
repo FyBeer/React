@@ -18,7 +18,7 @@ let initialState = {
 	status: ""
 }
 
-const accountPageReduser = (state = initialState, action) => {
+const accountPageReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 		case ADD_POST: 
@@ -86,4 +86,4 @@ export const updateStatus = (status) => (dispatch) => {
 }
 
 
-export default accountPageReduser
+export default accountPageReducer

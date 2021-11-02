@@ -1,5 +1,5 @@
 import Posts from "./Posts"
-import { addPostActionCreater, onPostChangeActionCreater } from '../../Redux/accountPageReduser';
+import { addPostActionCreater, onPostChangeActionCreater } from '../../Redux/accountPageReducer';
 import { connect } from "react-redux";
 
 

@@ -10,7 +10,7 @@ let initialState = {
 	isFetching: false
 }
 
-const authReduser = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
 
 
 	switch (action.type) {
@@ -41,4 +41,4 @@ export const getAuthMe = () => (dispatch) => {
 	})
 }
 
-export default authReduser
+export default authReducer

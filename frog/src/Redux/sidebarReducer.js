@@ -7,11 +7,11 @@ let initialState = {
 }
 
 
-const sidebarReduser = (state = initialState, action) => {
+const sidebarReducer = (state = initialState, action) => {
 
 	let stateCopy = {...state}
 
 	return stateCopy
 }
 
-export default sidebarReduser
+export default sidebarReducer

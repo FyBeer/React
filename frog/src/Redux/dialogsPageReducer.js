@@ -21,7 +21,7 @@ let initialState = {
 	newMessageText: ''
 }
 
-const dialogsPageReduser = (state = initialState, action) => {
+const dialogsPageReducer = (state = initialState, action) => {
 
 
 	switch (action.type) {
@@ -52,4 +52,4 @@ const dialogsPageReduser = (state = initialState, action) => {
 export const addMessageActionCreater = () => ({ type: ADD_MESSAGE })
 export const onMessageChangeActionCreater = (text) => ({ type: ON_MESSAGE_CHANGE, newText: text })
 
-export default dialogsPageReduser
+export default dialogsPageReducer

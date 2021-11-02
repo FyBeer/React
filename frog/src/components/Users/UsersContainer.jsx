@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { followSuccess, setCurrentPage, unfollowSuccess, toggleFollowingIsProgress } from '../../Redux/usersReduser';
+import { followSuccess, setCurrentPage, unfollowSuccess, toggleFollowingIsProgress } from '../../Redux/usersReducer';
 import Users from './Users'
 import Preloader from '../Common/Preloadr/Preloader';
-import { getUsers, follow, unfollow } from '../../Redux/usersReduser';
+import { getUsers, follow, unfollow } from '../../Redux/usersReducer';
 
 class UsersContainer extends React.Component {
 
