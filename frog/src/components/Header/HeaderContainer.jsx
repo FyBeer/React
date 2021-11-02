@@ -6,7 +6,6 @@ class HeaderContainer extends React.Component {
 
 	componentDidMount() {
 		this.props.getAuthMe()
-		
 	}
 
 

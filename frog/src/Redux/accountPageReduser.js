@@ -4,6 +4,7 @@ import { accountAPI } from "../api/api"
 const ADD_POST = 'ADD_POST'
 const ON_POST_CHANGE = 'ON_POST_CHANGE'
 const SET_USERS_ACCOUNT = 'SET_USERS_ACCOUNT'
+const SET_USERS_STATUS = 'SET_USERS_STATUS'
 
 let initialState = {
 	posts: [
@@ -12,8 +13,9 @@ let initialState = {
 		{id:3, message:'Take it', likesCount: 2},
 		{id:4, message:'Thanks', likesCount: 333333}
 	],
-	newPostText: '',
-	account: null
+	newPostText: "",
+	account: null,
+	status: ""
 }
 
 const accountPageReduser = (state = initialState, action) => {
@@ -41,6 +43,12 @@ const accountPageReduser = (state = initialState, action) => {
 				account: action.account
 		}
 
+		case SET_USERS_STATUS: 
+			return {
+				...state,
+				status: action.status
+		}
+
 		default:
 			return state
 	}
@@ -50,6 +58,7 @@ const accountPageReduser = (state = initialState, action) => {
 export const addPostActionCreater = () => ({ type: ADD_POST })
 export const onPostChangeActionCreater = (text) => ({ type: ON_POST_CHANGE, newText: text })
 export const setUserAccount = (account) => ({type: SET_USERS_ACCOUNT, account })
+export const setUserStatus = (status) => ({type: SET_USERS_STATUS, status})
 
 
 export const getAccount = (userId) => (dispatch) => {
@@ -57,7 +66,23 @@ export const getAccount = (userId) => (dispatch) => {
 	.then(data => {
 		dispatch(setUserAccount(data))
 	})
+}
 
+export const getStatus = (userId) => (dispatch) => {
+	accountAPI.getStatus(userId)
+	.then(data => {
+		dispatch(setUserStatus(data))
+	})
+}
+
+export const updateStatus = (status) => (dispatch) => {
+	accountAPI.updateStatus(status)
+	.then(data => {
+		if (data.resultCode === 0) {
+			dispatch(setUserStatus(status))
+		}
+		
+	})
 }
 
 

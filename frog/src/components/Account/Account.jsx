@@ -20,9 +20,9 @@ const Account = (props) => {
           <li className={Account_style.item}>City: Sevastopol</li>
           <li className={Account_style.item}>Education: SevSU</li>
           <li className={Account_style.item}>Web Site: https//...</li>
-          <li className={Account_style.item}>About me: {props.account.aboutMe} </li>
+          <li className={Account_style.item}>About me: {props.account.aboutMe}</li>
         </ul>
-        <AccountStatus />
+        <AccountStatus status={props.status} updateStatus={props.updateStatus} />
       </div>
       <PostsContainer />
     </div>
