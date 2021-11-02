@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Account from './Account';
 import { withRouter } from 'react-router';
 import { getAccount } from '../../Redux/accountPageReduser';
-import { withAuthRedirect } from '../../hoc/WithAuthRedirect';
 import { compose } from 'redux';
 
 class AccountContainer extends React.Component {
@@ -30,6 +29,5 @@ let mapStateToProps = (state) => {
 
 export default compose(
 	connect (mapStateToProps, {getAccount}),
-	withRouter,
-	withAuthRedirect
+	withRouter
 ) (AccountContainer)

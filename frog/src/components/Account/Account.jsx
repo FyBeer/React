@@ -1,6 +1,7 @@
 import Preloader from '../Common/Preloadr/Preloader';
 import Account_style from './Account_style/Account.module.css'
 import PostsContainer from './PostsContainer';
+import AccountStatus from './AccountInfo/AccountStatus'
 
 const Account = (props) => {
 
@@ -21,6 +22,7 @@ const Account = (props) => {
           <li className={Account_style.item}>Web Site: https//...</li>
           <li className={Account_style.item}>About me: {props.account.aboutMe} </li>
         </ul>
+        <AccountStatus />
       </div>
       <PostsContainer />
     </div>
