@@ -1,37 +1,39 @@
 import Posts_style from './Account_style/Posts.module.css'
 import Post from './Post/Post';
 import React from 'react';
+import {Field, reduxForm} from 'redux-form'
 
 const Posts = (props) => {
 	
 	let postsElements = props.posts.map( p => <Post key={p.id} message={p.message} likesCount={p.likesCount}></Post> )
 
-	let onAddPost = () => {
-		
-		props.addPost()
-	}
-	
-	let onPostChange = (e) => {
-		
-		
-		let text = e.target.value
-		props.PostChange(text)
+
+
+	const newPost = (value) => {
+		props.addPost(value.newPost)
 	}
 	return (
 		<div>
 			<div className={Posts_style.box}>
 			<p className={Posts_style.header}>My posts</p>
-			<textarea 
-						type="text" 
-						value={props.newPostText} 
-						className={Posts_style.input}
-						onChange={onPostChange}></textarea>
-			<button onClick={onAddPost} className={Posts_style.add}>send</button>
+			<NewPostForm onSubmit={newPost} />
 		</div>
 			{postsElements}
 		</div>
 		
 	);
 }
+
+const newPost = (props) => {
+	return (
+		<form onSubmit={props.handleSubmit}>
+			<Field className={Posts_style.input} placeholder='Enter new post' name='newPost' component='textarea' />
+			<button className={Posts_style.add}>send</button>
+		</form>
+	)
+}
+
+const NewPostForm = reduxForm ({ form: 'accountNewPostForm'}) (newPost)
+
 
 export default Posts

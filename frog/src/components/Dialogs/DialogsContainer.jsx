@@ -7,19 +7,14 @@ import Dialogs from './Diaologs';
 let mapStateToProps = (state) => {
 	return {
 		messages: state.dialogsPage.messages,
-		dialogs: state.dialogsPage.dialogs,
-		newMessageText: state.dialogsPage.newMessageText,
+		dialogs: state.dialogsPage.dialogs
 	}
 }
 let mapDispatchToProps = (dispatch) => {
 	
 	return {
-		updatePostChange: (text) => {
-			dispatch(onMessageChangeActionCreater(text))
-		},
-
-		addMessage: () => {
-			dispatch(addMessageActionCreater())
+		addMessage: (newMessage) => {
+			dispatch(addMessageActionCreater(newMessage))
 		}
 	}
 }

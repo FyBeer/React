@@ -1,5 +1,6 @@
 const ADD_MESSAGE = 'ADD_MESSAGE'
 const ON_MESSAGE_CHANGE = 'ON_MESSAGE_CHANGE'
+const NEW_MESSAGE = 'NEW_MESSAGE'
 
 let initialState = {
 	dialogs: [
@@ -17,8 +18,7 @@ let initialState = {
 		{id:3, message:'New path for react'},
 		{id:4, message:'Where my project bitch'},
 		{id:5, message:'Good job my little boy'}
-	],
-	newMessageText: ''
+	]
 }
 
 const dialogsPageReducer = (state = initialState, action) => {
@@ -27,19 +27,9 @@ const dialogsPageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		
 		case ADD_MESSAGE:{
-			let newMessageText = state.newMessageText
 			return {
 				...state,
-				newMessageText: '',
-				messages: [...state.messages, {id: 6, message: newMessageText}]
-			}
-		}
-			
-
-		case ON_MESSAGE_CHANGE: {
-			return {
-				...state,
-				newMessageText: action.newText
+				messages: [...state.messages, {id: 6, message: action.newMessage}]
 			}
 		}
 			
@@ -49,7 +39,6 @@ const dialogsPageReducer = (state = initialState, action) => {
 
 }
 
-export const addMessageActionCreater = () => ({ type: ADD_MESSAGE })
-export const onMessageChangeActionCreater = (text) => ({ type: ON_MESSAGE_CHANGE, newText: text })
+export const addMessageActionCreater = (newMessage) => ({ type: ADD_MESSAGE, newMessage })
 
 export default dialogsPageReducer
