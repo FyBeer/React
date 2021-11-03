@@ -10,6 +10,7 @@ class AccountContainer extends React.Component {
 
 	componentDidMount = () => {
 		let userId = this.props.match.params.userId
+		if (!userId) userId = this.props.myId
 		this.props.getAccount(userId)
 		this.props.getStatus(userId)
 	}
@@ -25,7 +26,9 @@ class AccountContainer extends React.Component {
 let mapStateToProps = (state) => {
 	return {
 		account: state.accountPage.account,
-		status: state.accountPage.status
+		status: state.accountPage.status,
+		myId: state.auth.userId,
+		isAuth: state.auth.isAuth
 	}
 }
 
