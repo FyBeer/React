@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { followSuccess, setCurrentPage, unfollowSuccess, toggleFollowingIsProgress } from '../../Redux/usersReducer';
+import {setCurrentPage} from '../../Redux/usersReducer';
 import Users from './Users'
 import Preloader from '../Common/Preloadr/Preloader';
 import { getUsers, follow, unfollow } from '../../Redux/usersReducer';
+import { getUsersSuperSelector } from '../../selectors/userSelectors';
 
 class UsersContainer extends React.Component {
 
@@ -37,7 +38,7 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
 	return {
-		users: state.usersPage.users,
+		users: getUsersSuperSelector(state),
 		pageSize: state.usersPage.pageSize,
 		currentPage: state.usersPage.currentPage,
 		totalUsersCount: state.usersPage.totalUsersCount,
