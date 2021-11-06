@@ -9,7 +9,7 @@ let initialState = {
 }
 
 const appReducer = (state = initialState, action) => {
-debugger
+
 
 	switch (action.type) {
 		

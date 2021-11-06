@@ -1,61 +1,79 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 
-class AccountStatus extends React.Component {
+const AccountStatus = (props) => {
 
-	state = {
-		editMode: false,
-		status: this.props.status
+	// state = {
+	// 	editMode: false,
+	// 	status: props.status
+	// }
+	// activeEditMode = () => {
+	// 	setState({
+	// 		editMode: true
+	// 	})
+	// }
+
+	// disableEditMode = () => {
+	// 	setState({
+	// 		editMode: false
+	// 	})
+	// 	props.updateStatus(state.status)
+	// }
+
+
+
+	// onStatusChange = (e) => {
+	// 	setState({
+	// 		status: e.currentTarget.value
+	// 	})
+
+	// }
+
+	// componentDidUpdate(prevProps, prevState) {
+	// 	if (prevProps.status !== props.status) {
+	// 		setState({
+	// 			status: props.status
+	// 		})
+	// 	}
+	// }
+
+	const [editMode, setEditMode] = useState(false)
+	const [status, setStatus] = useState()
+
+	useEffect(() => {
+		setStatus(props.status)
+	}, [props.status])
+
+	const activeEditMode = () => {
+		setEditMode(true)
 	}
-	activeEditMode = () => {
-		this.setState({
-			editMode: true
-		})
+
+	const disableEditMode = () => {
+		setEditMode(false)
+		props.updateStatus(status)
 	}
 
-	disableEditMode = () => {
-		this.setState({
-			editMode: false
-		})
-		this.props.updateStatus(this.state.status)
+	const onStatusChange = (e) => {
+		setStatus(e.currentTarget.value)
 	}
 
-	
+	return (
+		<>
+			{!editMode &&
+				<div>
+					<span onClick={activeEditMode} >{status || 'Enter new status'}</span>
+				</div>
+			}
+			{editMode &&
+				<div>
+					<input onChange={onStatusChange} onBlur={disableEditMode} autoFocus={true} type="text" value={status}  />
+				</div>
+			}
 
-	onStatusChange = (e) => {
-		this.setState({
-			status: e.currentTarget.value
-		})
-		
-	}
 
-	componentDidUpdate (prevProps, prevState) {
-		if (prevProps.status !== this.props.status) {
-			this.setState({
-				status: this.props.status
-			})
-		}
-	}
-
-	render() {
-		return (
-			<>
-				{!this.state.editMode &&
-					<div>
-						<span onClick={this.activeEditMode} >{this.props.status || 'Enter new status'}</span>
-					</div>
-				}
-				{this.state.editMode &&
-					<div>
-						<input onChange={this.onStatusChange} autoFocus={true} onBlur={this.disableEditMode} value={this.state.status} type="text" />
-					</div>
-				}
-				
-				
-			</>
-		)
-	}
-	
+		</>
+	)
 }
+
 
 export default AccountStatus
