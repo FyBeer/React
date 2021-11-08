@@ -1,4 +1,4 @@
-import Preloader from '../Common/Preloadr/Preloader';
+import Preloader from '../Common/Preloader/Preloader';
 import Account_style from './Account_style/Account.module.css'
 import PostsContainer from './PostsContainer';
 import AccountStatus from './AccountInfo/AccountStatus'
