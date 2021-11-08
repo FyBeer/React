@@ -4,7 +4,6 @@ import MemoryGame from "./components/MemoryGame/MemoryGame";
 export default function App() {
   const [options, setOptions] = useState(null)
   const [highScore, setHighScore] = useState(0)
-
   useEffect(() => {
     const json = localStorage.getItem('memorygamehighscore')
     const savedScore = JSON.parse(json)

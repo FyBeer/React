@@ -1,6 +1,4 @@
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const ON_MESSAGE_CHANGE = 'ON_MESSAGE_CHANGE'
-const NEW_MESSAGE = 'NEW_MESSAGE'
+const ADD_MESSAGE = 'frog/dialogs/ADD_MESSAGE'
 
 let initialState = {
 	dialogs: [

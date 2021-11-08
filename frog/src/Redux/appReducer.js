@@ -1,8 +1,6 @@
-import { stopSubmit } from "redux-form"
-import { authAPI } from "../api/api"
 import { getAuthMe } from "./authReducer"
 
-const SET_INITIALIZATION = 'SET_INITIALIZATION'
+const SET_INITIALIZATION = 'frog/app/SET_INITIALIZATION'
 
 let initialState = {
 	initialization: false
@@ -29,10 +27,9 @@ const appReducer = (state = initialState, action) => {
 
 export const isInitialization = () => ({ type: SET_INITIALIZATION})
 
-export const initializeApp = () => (dispatch) => {
-	dispatch(getAuthMe()).then(() => {
+export const initializeApp = () => async (dispatch) => {
+	await dispatch(getAuthMe())
 		dispatch(isInitialization())
-	})
 	
 }
 

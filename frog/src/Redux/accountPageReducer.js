@@ -1,9 +1,9 @@
 import { accountAPI } from "../api/api"
 
 
-const ADD_POST = 'ADD_POST'
-const SET_USERS_ACCOUNT = 'SET_USERS_ACCOUNT'
-const SET_USERS_STATUS = 'SET_USERS_STATUS'
+const ADD_POST = 'frog/account/ADD_POST'
+const SET_USERS_ACCOUNT = 'frog/account/SET_USERS_ACCOUNT'
+const SET_USERS_STATUS = 'frog/account/SET_USERS_STATUS'
 
 let initialState = {
 	posts: [
@@ -50,28 +50,22 @@ export const setUserAccount = (account) => ({type: SET_USERS_ACCOUNT, account })
 export const setUserStatus = (status) => ({type: SET_USERS_STATUS, status})
 
 
-export const getAccount = (userId) => (dispatch) => {
-	accountAPI.getAccount(userId)
-	.then(data => {
+export const getAccount = (userId) => async (dispatch) => {
+	const data = await accountAPI.getAccount(userId)
 		dispatch(setUserAccount(data))
-	})
 }
 
-export const getStatus = (userId) => (dispatch) => {
-	accountAPI.getStatus(userId)
-	.then(data => {
+export const getStatus = (userId) => async (dispatch) => {
+	const data = await accountAPI.getStatus(userId)
 		dispatch(setUserStatus(data))
-	})
 }
 
-export const updateStatus = (status) => (dispatch) => {
-	accountAPI.updateStatus(status)
-	.then(data => {
+export const updateStatus = (status) => async (dispatch) => {
+	const data = await accountAPI.updateStatus(status)
 		if (data.resultCode === 0) {
 			dispatch(setUserStatus(status))
 		}
 		
-	})
 }
 
 

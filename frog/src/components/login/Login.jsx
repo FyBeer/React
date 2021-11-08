@@ -7,9 +7,9 @@ import { Redirect } from "react-router"
 
 const maxLength20 = maxLength(20)
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
 	return (
-		<form onSubmit={props.handleSubmit}>
+		<form onSubmit={handleSubmit}>
 			<div>
 				<Field placeholder={"Email"} name={'email'} component={Input} validate={[required, maxLength20]} />
 			</div>
@@ -19,7 +19,7 @@ const LoginForm = (props) => {
 			<div>
 				<Field type={"checkbox"} name={'rememberMe'} component={'input'}/>
 			</div>
-			{ props.error && <h2>{props.error}</h2>}
+			{ error && <h2>{error}</h2>}
 			<div>
 				<button>Login</button>
 			</div>
@@ -34,13 +34,13 @@ const LoginReduxForm = reduxForm ({
 
 
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
 
 	const onSubmit = (formData) => {
-		props.login(formData.email, formData.password, formData.rememberMe)
+		login(formData.email, formData.password, formData.rememberMe)
 		}
 
-		if (props.isAuth) return <Redirect to={'/profile'} />
+		if (isAuth) return <Redirect to={'/profile'} />
 
 	return (
 		<div>

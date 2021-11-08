@@ -1,27 +1,13 @@
 import usersStyle from './usersStyle/usersStyle.module.css'
 import nonPhoto from '../../assets/image/nonPhoto.png'
 import { NavLink } from 'react-router-dom'
+import Pagination from '../Common/Pagination/Pagination'
 
 const Users = (props) => {
 
-	let pages = []
-
-		for (let i = 1; i <= props.pageCount; i++) {
-			pages.push(i)
-			
-		}
-
 	return (
 		<div className={usersStyle.box}>
-			<ul className={usersStyle.pagination}>
-				<button className={usersStyle.previous}></button>
-				{pages.map(p => {
-				 return	<li className={`${usersStyle.paginationEl} ${props.currentPage === p && usersStyle.selected}`} 
-								 onClick={(e) => {props.onPageChange(p) }}>{p}
-							</li>
-				})}
-				<button className={usersStyle.next}></button>
-			</ul>
+			<Pagination pageCount={props.pageCount} currentPage={props.currentPage} onPageChange={props.onPageChange} />
 
 			{
 				props.users.map(u => <div className={usersStyle.userBox} key={u.id}>
