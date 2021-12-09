@@ -25,6 +25,10 @@ const appReducer = (state = initialState, action) => {
 
 }
 
+const inro = () => {
+	return 0
+}
+
 export const isInitialization = () => ({ type: SET_INITIALIZATION})
 
 export const initializeApp = () => async (dispatch) => {
